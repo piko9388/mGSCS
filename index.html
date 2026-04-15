@@ -223,6 +223,108 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
   </div>
 </div>
 
+<!-- ★ 시스템 소개 모달 -->
+<div id="infoOverlay" class="modal-overlay" onclick="if(event.target===this)closeInfoModal()">
+  <div class="modal-box" style="width:780px;">
+    <div class="modal-head">
+      <h2>ℹ️ mGSCS — 재난·위기 뉴스 모니터 시스템 소개</h2>
+      <button class="modal-close" onclick="closeInfoModal()">×</button>
+    </div>
+    <div class="modal-body" style="font-size:12px;color:#475569;line-height:1.9;">
+
+      <div style="background:#1E293B;color:#fff;padding:16px 20px;border-radius:8px;margin-bottom:16px;">
+        <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#94A3B8;margin-bottom:4px;">mGSCS — material Global Supply Chain Surveillance</div>
+        <div style="font-size:16px;font-weight:800;">반도체 소재 공급망 재난·위기 모니터링 시스템</div>
+        <div style="font-size:11px;color:#94A3B8;margin-top:4px;">소재전략 품질파트 · SK하이닉스</div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-size:13px;font-weight:700;color:#1E293B;border-left:4px solid #C0392B;padding-left:8px;margin-bottom:8px;">시스템 개요</div>
+        <p>mGSCS는 글로벌 재난·위기 뉴스를 실시간 수집하고, AI 이중 검증을 거쳐 반도체 소재 공급망에 미치는 영향을 자동 분석하는 통합 모니터링 시스템입니다.</p>
+        <p style="margin-top:4px;">기존 mGSCS 재난 점검 프로세스(BP사 수동 점검 요청)를 자동화하여, 이슈 감지 → 영향 분석 → 보고서 배포까지의 리드타임을 단축합니다.</p>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-size:13px;font-weight:700;color:#1E293B;border-left:4px solid #2563EB;padding-left:8px;margin-bottom:8px;">작동 구조</div>
+        <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:6px;padding:12px 16px;font-family:monospace;font-size:11px;line-height:2;color:#334155;">
+          ① RSS 수집 (38개 소스, 5개 지역) → ② 키워드 필터 (4개국어 200+) → ③ AI 재난 검증 (Claude Haiku) → ④ 공급망 영향 분석 (mGSCS) → ⑤ 보고서 생성·메일 자동 발송
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-size:13px;font-weight:700;color:#1E293B;border-left:4px solid #059669;padding-left:8px;margin-bottom:8px;">RSS 소스 커버리지 (38개)</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;">
+          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:4px;padding:6px 8px;"><b style="color:#16A34A;">🇰🇷 한국 13개</b><br><span style="font-size:10px;">연합·KBS·MBC·SBS·JTBC·조선·중앙·한경·매경·YTN·전자신문·경향·헤럴드</span></div>
+          <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:4px;padding:6px 8px;"><b style="color:#2563EB;">🇺🇸🇪🇺 미국·유럽 8개</b><br><span style="font-size:10px;">Reuters·BBC·AP·Al Jazeera·CNN·Guardian·DW·CNBC</span></div>
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:4px;padding:6px 8px;"><b style="color:#DC2626;">🇨🇳 중국 5개</b><br><span style="font-size:10px;">新华社·人民日报·CGTN·SCMP·Global Times</span></div>
+          <div style="background:#FFF7ED;border:1px solid #FED7AA;border-radius:4px;padding:6px 8px;"><b style="color:#EA580C;">🇯🇵 일본 9개</b><br><span style="font-size:10px;">NHK·朝日·読売·毎日·日経·産経·共同·TBS·Yahoo!JP</span></div>
+          <div style="background:#F5F3FF;border:1px solid #DDD6FE;border-radius:4px;padding:6px 8px;"><b style="color:#7C3AED;">🇹🇼 대만 2개</b><br><span style="font-size:10px;">中央通訊社·DIGITIMES</span></div>
+          <div style="background:#FDF2F8;border:1px solid #FBCFE8;border-radius:4px;padding:6px 8px;"><b style="color:#DB2777;">🇮🇷 중동 2개</b><br><span style="font-size:10px;">Al Jazeera·Middle East Eye</span></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-size:13px;font-weight:700;color:#1E293B;border-left:4px solid #D97706;padding-left:8px;margin-bottom:8px;">카테고리 & 키워드 체계 (15개 카테고리, 200+ 키워드)</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;">
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#FEF2F2;color:#DC2626;border:1px solid #FECACA;">✊ 파업</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#FEF2F2;color:#DC2626;border:1px solid #FECACA;">🔥 화재</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE;">🌊 홍수</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#FFF7ED;color:#92400E;border:1px solid #FED7AA;">🌍 지진</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#F5F3FF;color:#7C3AED;border:1px solid #DDD6FE;">🌀 태풍</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#FEF2F2;color:#B91C1C;border:1px solid #FECACA;">⚔️ 전쟁</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#FFFBEB;color:#D97706;border:1px solid #FDE68A;">🚫 무역규제</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#ECFDF5;color:#0E7490;border:1px solid #A7F3D0;">⚓ 해상봉쇄</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#ECFDF5;color:#059669;border:1px solid #A7F3D0;">💱 환율</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;">🌋 화산</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;">🇺🇦 우크라이나</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#EFF6FF;color:#0369A1;border:1px solid #BFDBFE;">🇮🇱 이스라엘</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#FEF2F2;color:#DC2626;border:1px solid #FECACA;">💥 폭발</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#FFF7ED;color:#7C2D12;border:1px solid #FED7AA;">🔗 공급망위기</span>
+          <span style="font-size:10px;padding:2px 8px;border-radius:10px;background:#FDF2F8;color:#831843;border:1px solid #FBCFE8;">🇮🇷 이란</span>
+        </div>
+        <p style="font-size:11px;color:#64748B;">한국어·영어·중국어·일본어 4개국어 키워드 동시 매칭. J-Risk(2019) 소재명(불화수소·포토레지스트·플루오린 폴리이미드), 핵심 원자재(갈륨·게르마늄·안티몬·황산·네온·헬륨), 수출통제 용어(전략물자·화이트리스트·개별허가) 포함.</p>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-size:13px;font-weight:700;color:#1E293B;border-left:4px solid #0E7490;padding-left:8px;margin-bottom:8px;">공급망 영향 분석 (SCM Impact)</div>
+        <p>AI가 수집된 뉴스를 SK하이닉스 소재 공급망 맥락(7개 소재군, 96개 BP사, 4개 거점)으로 분석하여, 실질적 영향이 예상되는 이슈만 선별합니다.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:6px;">
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:6px 8px;font-size:10px;">
+            <b>소재군:</b> Photo · Chemical · CMP · Gas · Precursor · Wafer · Target
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:4px;padding:6px 8px;font-size:10px;">
+            <b>조달지역:</b> 일본(Photo·Gas) · 한국(Chemical·CMP) · 중국(Chemical·황산) · 미국·유럽(Gas·Target) · 중동(해상물류)
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-size:13px;font-weight:700;color:#1E293B;border-left:4px solid #7C3AED;padding-left:8px;margin-bottom:8px;">자동 보고서 & 메일 배포</div>
+        <p>GitHub Actions 기반으로 매일 오전 8시(KST) 자동 수집 → AI 분석 → 보고서 생성 → Gmail 발송. 보고서 구조: Executive Summary(리스크 레벨 + 핵심 이슈 3줄) → Detail(공급망 영향 → 긴급 → 주의 → 모니터링).</p>
+      </div>
+
+      <div style="margin-bottom:6px;">
+        <div style="font-size:13px;font-weight:700;color:#1E293B;border-left:4px solid #DC2626;padding-left:8px;margin-bottom:8px;">개선 이력</div>
+        <table style="width:100%;border-collapse:collapse;font-size:11px;">
+          <thead><tr style="background:#F1F5F9;"><th style="padding:4px 8px;text-align:left;font-weight:600;color:#64748B;border-bottom:2px solid #E2E8F0;">버전</th><th style="padding:4px 8px;text-align:left;font-weight:600;color:#64748B;border-bottom:2px solid #E2E8F0;">개선 내용</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;font-weight:600;white-space:nowrap;">v1.0</td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;">초기 시스템 구축 — RSS 31개 소스, 12개 카테고리, AI 이중 검증, 뉴스 DB 누적</td></tr>
+            <tr><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;font-weight:600;white-space:nowrap;">v2.0</td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;">보고서 생성 기능, mGSCS 공급망 영향 분석 섹션, 버그 6건 수정(XSS·isNew 플래그·카운트다운 충돌 등)</td></tr>
+            <tr><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;font-weight:600;white-space:nowrap;">v2.1</td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;">카테고리 확장 (12→15개): 무역규제·해상봉쇄·공급망위기·이란 신설. 관세→무역규제 자동 마이그레이션</td></tr>
+            <tr><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;font-weight:600;white-space:nowrap;">v2.2</td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;">J-Risk(2019) 대응 키워드 전면 보강 — 불화수소·포토레지스트·갈륨·게르마늄·안티몬·전략물자·화이트리스트 등 60+ 추가</td></tr>
+            <tr><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;font-weight:600;white-space:nowrap;">v2.3</td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;">BP 소재군 기반 RSS 소스 감사 — 38개로 확장. 대만(CNA·DIGITIMES), CNBC, 전자신문, 경향, 헤럴드, Middle East Eye 추가</td></tr>
+            <tr><td style="padding:4px 8px;font-weight:600;white-space:nowrap;">v2.4</td><td style="padding:4px 8px;">메일 자동 배포 (GitHub Actions + Gmail SMTP), Executive Summary 보고서, 시스템 소개 모달</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-gray" onclick="closeInfoModal()">닫기</button>
+    </div>
+  </div>
+</div>
+
 <!-- HEADER -->
 <div id="header">
   <div class="hd-top">
@@ -240,6 +342,7 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
       </div>
       <button class="btn btn-gray" id="apiKeyBtn" onclick="openApiKeyModal()">🔑 API 키</button>
       <button class="btn btn-gray" onclick="openKwModal()">⚙️ 카테고리·키워드</button>
+      <button class="btn btn-outline" onclick="openInfoModal()" title="시스템 소개">ℹ️ 시스템</button>
       <button class="btn btn-outline" onclick="clearNewsDB()" title="저장된 뉴스 DB 초기화">🗑 DB 초기화</button>
       <button class="btn btn-blue" onclick="generateReport()">📊 보고서 생성</button>
       <button class="btn btn-red" id="refreshBtn" onclick="startFetch()">🔄 새로고침</button>
@@ -476,6 +579,8 @@ function openApiKeyModal(){
   document.getElementById("apiKeyOverlay").classList.add("open");
 }
 function closeApiKeyModal(){ document.getElementById("apiKeyOverlay").classList.remove("open"); }
+function openInfoModal(){ document.getElementById("infoOverlay").classList.add("open"); }
+function closeInfoModal(){ document.getElementById("infoOverlay").classList.remove("open"); }
 
 function updateApiKeyBtn(){
   const btn=document.getElementById("apiKeyBtn");
@@ -1180,11 +1285,50 @@ a:hover{text-decoration:underline;}
     </table>
   </div>` : ""}
 
-  <div class="footer-note">
-    본 보고서는 재난·위기 뉴스 모니터(mGSCS) 시스템에 의해 자동 생성되었습니다.<br>
-    AI 이중 검증 기반 · 언론사 ${SOURCES.length}개 RSS 소스 · ${dateStr} ${timeStr} 기준<br>
-    소재전략 품질파트 · SK하이닉스
+  <!-- 시스템 개요 -->
+  <div style="margin-top:28px;padding-top:18px;border-top:3px solid #1E293B;">
+    <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#94A3B8;margin-bottom:6px;">SYSTEM OVERVIEW</div>
+    <div style="font-size:14px;font-weight:800;color:#1E293B;margin-bottom:4px;">mGSCS — 반도체 소재 공급망 재난·위기 모니터링 시스템</div>
+    <div style="font-size:11px;color:#64748B;margin-bottom:12px;">material Global Supply Chain Surveillance · 소재전략 품질파트 · SK하이닉스</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;font-size:10px;">
+      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:5px;padding:8px 10px;">
+        <div style="font-weight:700;color:#1E293B;margin-bottom:3px;">📡 수집 체계</div>
+        글로벌 38개 언론사 RSS 실시간 수집<br>
+        🇰🇷 한국 13 · 🇺🇸🇪🇺 미·유럽 8 · 🇨🇳 중국 5 · 🇯🇵 일본 9 · 🇹🇼 대만 2 · 🇮🇷 중동 2
+      </div>
+      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:5px;padding:8px 10px;">
+        <div style="font-weight:700;color:#1E293B;margin-bottom:3px;">🤖 분석 체계</div>
+        한/영/중/일 4개국어 200+ 키워드 필터<br>
+        AI 이중 검증 (Claude Haiku) → 공급망 영향 분석 (mGSCS)
+      </div>
+      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:5px;padding:8px 10px;">
+        <div style="font-weight:700;color:#1E293B;margin-bottom:3px;">🏭 공급망 맥락</div>
+        7개 소재군 · 96개 BP사 · 4개 거점(이천·청주·다롄·우시)<br>
+        Photo · Chemical · CMP · Gas · Precursor · Wafer · Target
+      </div>
+      <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:5px;padding:8px 10px;">
+        <div style="font-weight:700;color:#1E293B;margin-bottom:3px;">📊 배포 체계</div>
+        매일 08:00 KST 자동 보고서 생성·Gmail 발송<br>
+        Executive Summary + Detail 구조 · GitHub Actions
+      </div>
+    </div>
+
+    <div style="font-size:10px;color:#64748B;margin-bottom:8px;">
+      <span style="font-weight:700;color:#475569;">15개 감시 카테고리:</span>
+      파업 · 화재 · 홍수 · 지진 · 태풍 · 전쟁 · 무역규제 · 해상봉쇄 · 환율 · 화산 · 우크라이나 · 이스라엘 · 폭발 · 공급망위기 · 이란
+    </div>
+    <div style="font-size:10px;color:#64748B;margin-bottom:12px;">
+      <span style="font-weight:700;color:#475569;">핵심 키워드 커버리지:</span>
+      J-Risk 소재(불화수소·포토레지스트·플루오린 폴리이미드) · 핵심 원자재(갈륨·게르마늄·안티몬·황산·네온·헬륨) · 수출통제(전략물자·화이트리스트·Entity List) · 해상물류(호르무즈·수에즈·말라카)
+    </div>
+
+    <div style="font-size:9px;color:#94A3B8;text-align:center;padding-top:8px;border-top:1px solid #E2E8F0;line-height:1.8;">
+      mGSCS v2.4 · AI 이중 검증 · RSS ${SOURCES.length}개 소스 · ${dateStr} ${timeStr} 기준<br>
+      소재전략 품질파트 · SK하이닉스
+    </div>
   </div>
+
 </div>
 </body>
 </html>`;
