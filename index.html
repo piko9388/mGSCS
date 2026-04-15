@@ -24,6 +24,7 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
 .btn-gray{background:#F1F5F9;color:#475569;border:1px solid #E2E8F0;} .btn-gray:hover{background:#E2E8F0;}
 .btn-dark{background:#1E293B;color:#fff;} .btn-dark:hover{background:#334155;}
 .btn-outline{background:#fff;color:#64748B;border:1px solid #CBD5E1;} .btn-outline:hover{background:#F8FAFC;}
+.btn-blue{background:#2563EB;color:#fff;} .btn-blue:hover:not(:disabled){background:#1D4ED8;}
 .btn:disabled{background:#CBD5E1;color:#94A3B8;cursor:not-allowed;}
 #sourceBar{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap;}
 .src-badge{font-size:10px;padding:2px 7px;border-radius:10px;border:1px solid #E2E8F0;color:#94A3B8;background:#F8FAFC;}
@@ -88,7 +89,7 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
 .news-title-ko{font-size:12px;color:#64748B;line-height:1.4;margin-bottom:5px;font-style:italic;}
 .news-summary{font-size:12px;color:#475569;line-height:1.6;padding:6px 10px;background:#F8FAFC;border-radius:5px;border-left:3px solid #CBD5E1;}
 .sum-label{font-size:10px;font-weight:700;color:#94A3B8;margin-bottom:2px;text-transform:uppercase;font-family:'Trebuchet MS',sans-serif;letter-spacing:.5px;}
-.link-btn{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:6px;color:#475569;padding:7px 12px;font-size:11px;font-weight:600;text-decoration:none;flex-shrink:0;white-space:nowrap;transition:all .15s;align-self:center;font-family:'Trebuchet MS','Malgun Gothic',sans-serif;}
+.link-btn{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:6px;color:#475569;padding:7px 12px;font-size:11px;font-weight:600;text-decoration:none;flex-shrink:0;white-space:nowrap;transition:all .15s;align-self:center;font-family:'Trebuchet MS','Malgun Gothic',sans-serif;cursor:pointer;}
 .link-btn:hover{background:#1E293B;color:#fff;border-color:#1E293B;}
 .error-guide{margin:18px auto 0;padding:15px 18px;background:#fff;border-radius:8px;border:1px solid #E2E8F0;text-align:left;max-width:460px;}
 .error-guide h4{font-size:12px;font-weight:700;color:#475569;margin-bottom:7px;}
@@ -96,10 +97,8 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
 .retry-btn{margin-top:14px;background:#C0392B;border:none;border-radius:6px;color:#fff;padding:9px 22px;font-size:13px;font-weight:700;cursor:pointer;}
 .retry-btn:hover{background:#A93226;}
 #footer{text-align:center;padding:20px;font-size:11px;color:#CBD5E1;font-family:'Trebuchet MS',sans-serif;}
-/* DB 상태 바 */
 #dbBar{background:#F0FDF4;border-bottom:1px solid #BBF7D0;padding:5px 24px;font-size:11px;color:#15803D;display:flex;align-items:center;gap:12px;}
 #dbBar span{color:#64748B;}
-/* API KEY 모달 */
 .apikey-desc{font-size:13px;color:#475569;margin-bottom:14px;line-height:1.7;}
 .apikey-label{font-size:12px;color:#64748B;font-weight:700;display:block;margin-bottom:6px;}
 .apikey-input{width:100%;padding:10px 12px;border:1px solid #E2E8F0;border-radius:6px;font-size:13px;font-family:'Malgun Gothic',sans-serif;outline:none;}
@@ -114,13 +113,13 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
 @keyframes flashNew{0%{background:#F0FDF4}100%{background:#fff}}
 /* ── 공급망 이슈 섹션 ── */
 #scmSection{max-width:1100px;margin:0 auto;padding:14px 24px 0;}
-.scm-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.scm-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:8px;}
 .scm-title{font-size:13px;font-weight:700;color:#1E293B;display:flex;align-items:center;gap:7px;}
 .scm-title-badge{font-size:10px;background:#FEF2F2;color:#C0392B;border:1px solid #FECACA;border-radius:4px;padding:2px 7px;font-weight:700;}
+.scm-header-btns{display:flex;gap:6px;flex-wrap:wrap;}
 .scm-analyze-btn{background:#1E293B;border:none;border-radius:6px;color:#fff;padding:6px 13px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Trebuchet MS','Malgun Gothic',sans-serif;}
 .scm-analyze-btn:hover{background:#334155;}
 .scm-analyze-btn:disabled{background:#CBD5E1;color:#94A3B8;cursor:not-allowed;}
-/* 한 줄 리스트 스타일 */
 .scm-list{display:flex;flex-direction:column;gap:5px;margin-bottom:4px;}
 .scm-row{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-left:3px solid #CBD5E1;border-radius:7px;padding:8px 13px;transition:box-shadow .15s;}
 .scm-row:hover{box-shadow:0 1px 6px rgba(0,0,0,.07);}
@@ -140,6 +139,11 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
 .scm-empty{padding:14px 0;color:#94A3B8;font-size:12px;}
 .scm-loading{padding:14px 0;color:#64748B;font-size:12px;}
 .scm-divider{border:none;border-top:2px solid #E2E8F0;margin:14px 0 0;}
+/* ── 보고서 모달 ── */
+.report-preview{background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:0;overflow:hidden;}
+.report-preview iframe{width:100%;height:55vh;border:none;}
+.report-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;align-items:center;}
+.report-actions .info{font-size:11px;color:#94A3B8;flex:1;}
 </style>
 </head>
 <body>
@@ -195,6 +199,30 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
   </div>
 </div>
 
+<!-- ★ 보고서 미리보기 모달 -->
+<div id="reportOverlay" class="modal-overlay" onclick="if(event.target===this)closeReportModal()">
+  <div class="modal-box" style="width:860px;">
+    <div class="modal-head">
+      <h2>📊 일일 공급망 리스크 보고서</h2>
+      <button class="modal-close" onclick="closeReportModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="report-preview">
+        <iframe id="reportFrame"></iframe>
+      </div>
+      <div class="report-actions">
+        <div class="info">보고서를 HTML 파일로 다운로드하거나, 이메일 본문용 텍스트를 복사할 수 있습니다.</div>
+        <button class="btn btn-gray" onclick="copyReportText()">📋 텍스트 복사</button>
+        <button class="btn btn-dark" onclick="downloadReportHTML()">💾 HTML 다운로드</button>
+        <button class="btn btn-blue" onclick="openMailWithReport()">📧 메일 발송</button>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-gray" onclick="closeReportModal()">닫기</button>
+    </div>
+  </div>
+</div>
+
 <!-- HEADER -->
 <div id="header">
   <div class="hd-top">
@@ -213,6 +241,7 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
       <button class="btn btn-gray" id="apiKeyBtn" onclick="openApiKeyModal()">🔑 API 키</button>
       <button class="btn btn-gray" onclick="openKwModal()">⚙️ 카테고리·키워드</button>
       <button class="btn btn-outline" onclick="clearNewsDB()" title="저장된 뉴스 DB 초기화">🗑 DB 초기화</button>
+      <button class="btn btn-blue" onclick="generateReport()">📊 보고서 생성</button>
       <button class="btn btn-red" id="refreshBtn" onclick="startFetch()">🔄 새로고침</button>
     </div>
   </div>
@@ -236,7 +265,9 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
       🏭 반도체 소재 공급망 영향 이슈
       <span class="scm-title-badge">mGSCS</span>
     </div>
-    <button class="scm-analyze-btn" id="scmBtn" onclick="runScmAnalysis()">⚡ 공급망 영향 분석 실행</button>
+    <div class="scm-header-btns">
+      <button class="scm-analyze-btn" id="scmBtn" onclick="runScmAnalysis()">⚡ 공급망 영향 분석 실행</button>
+    </div>
   </div>
   <div id="scmGrid" class="scm-list">
     <div class="scm-empty">뉴스 수집 후 「공급망 영향 분석 실행」을 눌러주세요.</div>
@@ -257,27 +288,59 @@ body{min-height:100vh;background:#F4F6F9;font-family:'Malgun Gothic','Trebuchet 
 </div>
 <div id="footer">재난·위기 뉴스 모니터 · AI 이중 검증 필터링 시스템</div>
 
+<!-- Toast -->
+<div id="toast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1E293B;color:#fff;padding:10px 20px;border-radius:8px;font-size:12px;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:opacity .3s;opacity:0;pointer-events:none;"></div>
+
 <script>
 // ════════════════════════════════════════
 // 기본 카테고리 정의
 // ════════════════════════════════════════
 const DEFAULT_CATEGORIES = [
-  {id:"파업",    icon:"✊", color:"#EA580C", kw:["파업","총파업","파업 돌입","전면파업","쟁의행위"]},
-  {id:"화재",    icon:"🔥", color:"#DC2626", kw:["화재","산불","방화","불길","연소","화염"]},
+  {id:"파업",    icon:"✊", color:"#EA580C", kw:["파업","총파업","파업 돌입","전면파업","쟁의행위","노조 파업","항만 파업","물류 파업"]},
+  {id:"화재",    icon:"🔥", color:"#DC2626", kw:["화재","산불","방화","불길","연소","화염","공장 화재","산업단지 화재"]},
   {id:"홍수",    icon:"🌊", color:"#2563EB", kw:["홍수","침수 피해","범람","물난리","폭우 피해","수해"]},
   {id:"지진",    icon:"🌍", color:"#92400E", kw:["지진","강진","여진","진앙","진도"]},
   {id:"태풍",    icon:"🌀", color:"#7C3AED", kw:["태풍","폭풍","사이클론","허리케인"]},
-  {id:"전쟁",    icon:"⚔️",  color:"#B91C1C", kw:["전쟁","공습","포격","침공","군사작전","전투","폭격"]},
-  {id:"관세",    icon:"📦", color:"#D97706", kw:["관세","무역분쟁","관세폭탄","관세 부과","무역전쟁"]},
+  {id:"전쟁",    icon:"⚔️",  color:"#B91C1C", kw:["전쟁","공습","포격","침공","군사작전","전투","폭격","이란 전쟁"]},
+  {id:"무역규제",  icon:"🚫", color:"#D97706", kw:["관세","무역분쟁","관세폭탄","관세 부과","무역전쟁","수출 금지","수출 중단","수출 통제","수출 규제","수입 금지","수입 규제","수출 제한","수출금지","수출중단","수출통제","자원 무기화","원자재 무기화","희토류 규제","희토류 수출","반도체 규제","공급 차단","공급 중단","원료 수출","원료 금지","교역 중단","통상 규제","제재 조치","경제 제재","수출허가","수출허가 제한"]},
+  {id:"해상봉쇄",  icon:"⚓", color:"#0E7490", kw:["봉쇄","해상봉쇄","해상 봉쇄","해협 봉쇄","호르무즈","호르무즈 봉쇄","말라카 해협","수에즈 운하","수에즈 봉쇄","해상 물류","해운 차질","항로 차단","선박 통행","해적","나포"]},
   {id:"환율",    icon:"💱", color:"#059669", kw:["환율 급등","환율 급락","달러 환율","외환위기","환율 충격"]},
   {id:"화산",    icon:"🌋", color:"#C2410C", kw:["화산","용암","분화","분출","화산재"]},
   {id:"우크라이나",icon:"🇺🇦",color:"#1D4ED8",kw:["우크라이나","키이우","젤렌스키","러시아군"]},
   {id:"이스라엘", icon:"🇮🇱",color:"#0369A1",kw:["이스라엘","가자지구","하마스","팔레스타인","네타냐후"]},
   {id:"폭발",    icon:"💥", color:"#DC2626", kw:["폭발 사고","폭탄","폭파","폭발물","테러 폭발"]},
+  {id:"공급망위기",icon:"🔗", color:"#7C2D12", kw:["공급망 위기","공급망 충격","공급망 차질","공급망 마비","공급망 붕괴","공급 쇼크","원자재 폭등","원자재 부족","원자재 대란","황산 수출","황산 금지","유황 부족","네온가스","헬륨 수출","팔라듐","니켈 부족","가스 공급","전력 대란","정전","단수","용수 부족"]},
+  {id:"이란",    icon:"🇮🇷",color:"#831843",kw:["이란","테헤란","호메이니","이란 제재","이란 공습","페르시아만"]},
 ];
 
 function loadCategories(){
-  try{const s=localStorage.getItem("disasterCats_v2");if(s)return JSON.parse(s);}catch(_){}
+  try{
+    const s=localStorage.getItem("disasterCats_v2");
+    if(s){
+      const saved = JSON.parse(s);
+      // ★ 마이그레이션: 새로 추가된 카테고리가 없으면 자동 병합
+      const newCatIds = ["무역규제","해상봉쇄","공급망위기","이란"];
+      const savedIds = new Set(saved.map(c=>c.id));
+      // "관세" → "무역규제" 마이그레이션
+      const oldTariff = saved.findIndex(c=>c.id==="관세");
+      if(oldTariff>=0 && !savedIds.has("무역규제")){
+        const upgraded = DEFAULT_CATEGORIES.find(c=>c.id==="무역규제");
+        if(upgraded){
+          // 기존 관세 키워드 유지 + 신규 키워드 병합
+          const mergedKw = [...new Set([...saved[oldTariff].kw, ...upgraded.kw])];
+          saved[oldTariff] = {...upgraded, kw:mergedKw};
+          savedIds.add("무역규제");
+        }
+      }
+      newCatIds.forEach(id=>{
+        if(!savedIds.has(id)){
+          const def = DEFAULT_CATEGORIES.find(c=>c.id===id);
+          if(def) saved.push(JSON.parse(JSON.stringify(def)));
+        }
+      });
+      return saved;
+    }
+  }catch(_){}
   return JSON.parse(JSON.stringify(DEFAULT_CATEGORIES));
 }
 function saveCategories(){
@@ -294,15 +357,14 @@ let CATS=loadCategories();
 // ★ 뉴스 DB — localStorage 누적 저장
 // ════════════════════════════════════════
 const DB_KEY = "disasterNewsDB_v1";
-const DB_MAX = 500;          // 최대 보관 건수
-const DB_TTL = 7 * 24 * 60; // 보관 기간: 7일(분 단위)
+const DB_MAX = 500;
+const DB_TTL = 7 * 24 * 60; // 7일(분)
 
 function loadNewsDB(){
   try{
     const raw = localStorage.getItem(DB_KEY);
     if(!raw) return [];
     const parsed = JSON.parse(raw);
-    // 7일 지난 뉴스 자동 정리
     const cutoff = Date.now() - DB_TTL * 60 * 1000;
     return parsed.filter(n => {
       const t = new Date(n.pubDate).getTime();
@@ -313,7 +375,6 @@ function loadNewsDB(){
 
 function saveNewsDB(news){
   try{
-    // 날짜순 정렬 후 최대 500건만 보관
     const sorted = [...news].sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
     const trimmed = sorted.slice(0, DB_MAX);
     localStorage.setItem(DB_KEY, JSON.stringify(trimmed));
@@ -323,14 +384,15 @@ function saveNewsDB(news){
   }
 }
 
-// 기존 DB + 새 뉴스 병합 (URL 기준 중복 제거)
 function mergeWithDB(newItems){
   const existing = loadNewsDB();
+  // ★ BugFix: isNew 플래그 초기화 — 기존 뉴스에서 isNew 제거
+  existing.forEach(n => { delete n.isNew; });
   const existingIds = new Set(existing.map(n => n.id));
   const added = [];
   newItems.forEach(n => {
     if(!existingIds.has(n.id)){
-      n.isNew = true;   // 이번 수집에서 새로 추가된 뉴스 표시
+      n.isNew = true;
       added.push(n);
       existingIds.add(n.id);
     }
@@ -358,7 +420,6 @@ function updateDbBar(news){
     document.getElementById("dbOldest").textContent = "";
     return;
   }
-  // 가장 오래된 뉴스 날짜
   const oldest = arr.reduce((a,b)=>new Date(a.pubDate)<new Date(b.pubDate)?a:b);
   const d = new Date(oldest.pubDate);
   if(!isNaN(d)){
@@ -375,7 +436,7 @@ function getProxyUrl(){ return localStorage.getItem("anthropic_proxy_url")||""; 
 
 function saveApiKey(){
   const val=document.getElementById("apiKeyInput").value.trim();
-  const proxy=document.getElementById("proxyUrlInput")?.value.trim()||""; 
+  const proxy=document.getElementById("proxyUrlInput")?.value.trim()||"";
   const statusEl=document.getElementById("apiKeyStatus");
   if(!val){ statusEl.textContent="❌ API 키를 입력해주세요."; statusEl.className="apikey-status err"; return; }
   if(!val.startsWith("sk-ant-")){ statusEl.textContent="❌ 올바른 형식이 아닙니다. 'sk-ant-'로 시작해야 합니다."; statusEl.className="apikey-status err"; return; }
@@ -505,7 +566,6 @@ async function callAI(prompt){
   if(!apiKey) throw new Error("API 키 없음 — 🔑 버튼을 눌러 키를 입력해주세요");
 
   const proxyUrl=getProxyUrl();
-  // proxy 있으면 프록시, 없으면 직접 호출
   const endpoint = proxyUrl
     ? proxyUrl.replace(/\/+$/, "") + "/v1/messages"
     : "https://api.anthropic.com/v1/messages";
@@ -515,7 +575,6 @@ async function callAI(prompt){
     "x-api-key": apiKey,
     "anthropic-version": "2023-06-01",
   };
-  // 직접 호출일 때만 CORS 우회 헤더 추가
   if(!proxyUrl) headers["anthropic-dangerous-direct-browser-access"] = "true";
 
   let res;
@@ -530,7 +589,6 @@ async function callAI(prompt){
       }),
     });
   } catch(fetchErr) {
-    // 직접 호출 실패 시 안내 메시지
     if(!proxyUrl) throw new Error("네트워크 오류 — 사내망이라면 🔑 버튼에서 Proxy URL을 입력하세요 ("+fetchErr.message+")");
     throw fetchErr;
   }
@@ -616,7 +674,6 @@ async function runScmAnalysis(){
   document.getElementById("scmGrid").innerHTML=`<div class="scm-loading">🔍 AI 분석 중... (${allNews.length}건 검토)</div>`;
 
   try{
-    // 최신 30건만 분석 (토큰 절약)
     const candidates = allNews.slice(0, 30);
     const newsList = candidates.map((n,i)=>
       `[${i}] [${n.category}] ${n.title}${n.titleKo?" ("+n.titleKo+")":""}${n.summary?" | "+n.summary:""}`
@@ -663,7 +720,6 @@ ${newsList}`;
     try{issues=JSON.parse(txt);}
     catch(_){const m=txt.match(/\[[\s\S]*\]/);if(m)issues=JSON.parse(m[0]);}
 
-    // 뉴스 참조 연결
     issues = issues.map(iss=>({
       ...iss,
       newsTitle: candidates[iss.newsIndex]?.title||"",
@@ -693,10 +749,11 @@ function renderScmIssues(issues){
   grid.innerHTML=sorted.map(iss=>{
     const mats=(iss.affectedMaterials||[]).map(m=>`<span class="scm-mat">${esc(m)}</span>`).join("");
     const link=iss.newsLink
-      ?`<a href="${esc(iss.newsLink)}" target="_blank" class="scm-row-link">기사↗</a>`:"";
+      ?`<a href="${esc(iss.newsLink)}" target="_blank" rel="noopener" class="scm-row-link">기사↗</a>`:"";
+    // ★ BugFix: 이중 닫힘 괄호 수정 (}}" → }")
     return`<div class="scm-row level-${iss.level}">
       <div class="scm-level-dot ${iss.level}"></div>
-      <div class="scm-row-title" title="${esc(iss.summary||"")}}">${esc(iss.title)}</div>
+      <div class="scm-row-title" title="${esc(iss.summary||"")}">${esc(iss.title)}</div>
       <div class="scm-row-region">${esc(iss.region||"")}</div>
       <div class="scm-mats">${mats}</div>
       ${link}
@@ -717,12 +774,15 @@ function detectCategory(title,desc){
     [["typhoon","hurricane","cyclone","tropical storm"],"태풍"],
     [["volcano","volcanic eruption","lava"],"화산"],
     [["airstrike","air strike","bombardment","shelling","military offensive"],"전쟁"],
-    [["tariff","trade war","import duty","trade sanction"],"관세"],
+    [["tariff","trade war","import duty","trade sanction","export ban","export control","export restriction","export halt","export curb","sanctions","embargo","trade restriction","rare earth ban","mineral ban","resource weaponization"],"무역규제"],
+    [["blockade","naval blockade","strait of hormuz","hormuz","malacca strait","suez canal","maritime blockade","shipping disruption","sea lane","strait closure","shipping route"],"해상봉쇄"],
+    [["supply chain crisis","supply shock","supply disruption","supply crunch","raw material shortage","material shortage","sulfuric acid","neon gas","helium export","palladium","nickel shortage","blackout","power outage","water shortage"],"공급망위기"],
     [["currency crisis","exchange rate crash","forex"],"환율"],
     [["explosion","blast","bomb attack","bombing","detonation"],"폭발"],
     [["ukraine","kyiv","zelensky"],"우크라이나"],
     [["israel","gaza strip","hamas","palestine"],"이스라엘"],
-    [["labor strike","general strike","walkout"],"파업"],
+    [["iran","tehran","persian gulf","iranian"],"이란"],
+    [["labor strike","general strike","walkout","port strike","dock strike"],"파업"],
   ];
   for(const[words,cat]of engMap)
     if(words.some(w=>tl.includes(w))){
@@ -741,16 +801,17 @@ function formatTime(pub){
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 
 // ════════════════════════════════════════
-// ★ 메인 수집 함수 (DB 누적 저장 적용)
+// ★ 메인 수집 함수
 // ════════════════════════════════════════
 async function startFetch(){
   if(isLoading)return;
 
-  // API 키 없으면 팝업 — 확인 누르면 모달 열고 중단, 취소 누르면 키워드 필터 모드로 그냥 진행
+  // ★ BugFix: 수집 중 카운트다운 정지
+  clearInterval(cdInterval);
+
   if(!getApiKey()){
     const goModal = confirm("AI 요약 기능을 위해 Anthropic API 키가 필요합니다.\n지금 입력하시겠습니까?\n\n(취소 시 키워드 필터만으로 수집합니다)");
     if(goModal){ openApiKeyModal(); return; }
-    // 취소 → API 없이 계속 진행 (아래로 통과)
   }
 
   isLoading=true;
@@ -782,9 +843,21 @@ async function startFetch(){
     const engKw=["earthquake","quake","flood","typhoon","hurricane","cyclone","fire","wildfire",
       "war","airstrike","missile","explosion","blast","bomb","tariff","trade war","ukraine",
       "kyiv","israel","gaza","hamas","strike","walkout","volcano","eruption","tsunami",
-      "terror","shooting","crash","disaster","casualties","killed","injured","dead"];
-    const zhKw=["地震","洪水","台风","火灾","爆炸","战争","空袭","关税","汇率","火山","罢工","海啸"];
-    const jaKw=["地震","津波","台風","火災","爆発","洪水","噴火","戦争","ストライキ","円安","円高","関税","テロ","災害"];
+      "terror","shooting","crash","disaster","casualties","killed","injured","dead",
+      "export ban","export halt","export control","export restriction","embargo","sanctions",
+      "blockade","hormuz","malacca","suez","strait","naval blockade","shipping disruption",
+      "supply chain","supply shock","supply crisis","supply disruption","raw material",
+      "sulfuric acid","neon gas","helium","palladium","rare earth","nickel shortage",
+      "blackout","power outage","water shortage","iran","tehran","persian gulf",
+      "port strike","dock strike","factory shutdown","plant closure"];
+    const zhKw=["地震","洪水","台风","火灾","爆炸","战争","空袭","关税","汇率","火山","罢工","海啸",
+      "出口禁令","出口管制","出口限制","出口中断","制裁","封锁","禁运",
+      "硫酸","霍尔木兹","马六甲","供应链","供应危机","原材料","稀土",
+      "伊朗","停电","断水","海上封锁","贸易战","贸易制裁"];
+    const jaKw=["地震","津波","台風","火災","爆発","洪水","噴火","戦争","ストライキ","円安","円高","関税","テロ","災害",
+      "輸出禁止","輸出規制","輸出停止","制裁","封鎖","禁輸",
+      "硫酸","ホルムズ","マラッカ","供給危機","原材料","レアアース",
+      "イラン","停電","断水","海上封鎖","貿易戦争"];
 
     const kwFiltered=collected.filter(it=>{
       const t=it.title,tl=t.toLowerCase(),d=(it.desc||"").toLowerCase();
@@ -799,7 +872,6 @@ async function startFetch(){
     setStatus(`AI 검증 중... (${kwFiltered.length}개 후보)`,false);
 
     if(kwFiltered.length===0){
-      // 새 뉴스 없어도 DB에서 기존 뉴스 유지
       allNews = loadNewsDB();
       renderNews();
       setStatus(`✓ ${collected.length}개 수집 · 새 재난 뉴스 없음 (DB ${allNews.length}건 유지)`,false);
@@ -834,13 +906,13 @@ async function startFetch(){
         aiErr=e.message;
         chunk.forEach(it=>{
           const cat=detectCategory(it.title,it.desc);
+          // ★ BugFix: fallback에서도 id 할당
           if(cat)results.push({...it,titleKo:"",summary:"",severity:"medium",category:cat,id:it.link||it.title,aiVerified:false});
         });
       }
       setProgress(55+Math.round((i+15)/kwFiltered.length*43),`AI 검증 중... (${Math.min(i+15,kwFiltered.length)}/${kwFiltered.length})`);
     }
 
-    // ★ DB에 병합 저장 (중복 제거 포함)
     const { merged, addedCount } = mergeWithDB(results);
     allNews = merged;
 
@@ -861,16 +933,354 @@ async function startFetch(){
 }
 
 // ════════════════════════════════════════
+// ★★★ 보고서 생성 기능
+// ════════════════════════════════════════
+let lastReportHTML = "";
+
+function generateReport(){
+  const news = allNews;
+  const scmIssues = loadScmIssues();
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("ko-KR", {year:"numeric",month:"long",day:"numeric",weekday:"long"});
+  const timeStr = now.toLocaleTimeString("ko-KR", {hour:"2-digit",minute:"2-digit"});
+
+  // 카테고리별 집계
+  const catCounts = {};
+  const sevCounts = {high:0, medium:0, low:0};
+  news.forEach(n => {
+    catCounts[n.category] = (catCounts[n.category]||0) + 1;
+    sevCounts[n.severity] = (sevCounts[n.severity]||0) + 1;
+  });
+
+  // 최근 24시간 뉴스
+  const h24 = Date.now() - 24*60*60*1000;
+  const recent24 = news.filter(n => new Date(n.pubDate).getTime() > h24);
+
+  // 긴급(high) 이슈
+  const highItems = news.filter(n => n.severity === "high").slice(0, 10);
+  // 주의(medium) 이슈
+  const medItems = news.filter(n => n.severity === "medium").slice(0, 10);
+
+  const html = `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>일일 공급망 리스크 보고서 — ${dateStr}</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;color:#1A1A2E;background:#fff;padding:0;font-size:13px;line-height:1.7;}
+.report{max-width:720px;margin:0 auto;padding:32px 28px;}
+.report-header{border-bottom:3px solid #C0392B;padding-bottom:16px;margin-bottom:20px;}
+.report-logo{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.report-logo-icon{width:36px;height:36px;background:#C0392B;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;}
+.report-logo-text{font-size:11px;color:#94A3B8;letter-spacing:1px;text-transform:uppercase;}
+.report-title{font-size:18px;font-weight:800;color:#1E293B;margin-bottom:4px;}
+.report-subtitle{font-size:12px;color:#64748B;}
+.report-meta{display:flex;gap:16px;margin-top:8px;font-size:11px;color:#94A3B8;}
+.section{margin-bottom:22px;}
+.section-title{font-size:14px;font-weight:700;color:#1E293B;border-left:4px solid #C0392B;padding-left:10px;margin-bottom:10px;}
+.section-title.blue{border-left-color:#2563EB;}
+.section-title.green{border-left-color:#16A34A;}
+.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
+.summary-card{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:6px;padding:10px 12px;text-align:center;}
+.summary-card .num{font-size:22px;font-weight:800;color:#1E293B;}
+.summary-card .label{font-size:10px;color:#94A3B8;margin-top:2px;}
+.summary-card.red .num{color:#DC2626;}
+.summary-card.orange .num{color:#D97706;}
+.summary-card.green .num{color:#16A34A;}
+.scm-alert{background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:12px 16px;margin-bottom:8px;}
+.scm-alert.medium{background:#FFFBEB;border-color:#FDE68A;}
+.scm-alert.low{background:#F0FDF4;border-color:#BBF7D0;}
+.scm-alert-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.scm-alert-level{font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;color:#fff;}
+.scm-alert-level.high{background:#DC2626;}
+.scm-alert-level.medium{background:#D97706;}
+.scm-alert-level.low{background:#16A34A;}
+.scm-alert-title{font-size:13px;font-weight:700;color:#1E293B;}
+.scm-alert-body{font-size:12px;color:#475569;margin-bottom:4px;}
+.scm-alert-mats{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px;}
+.scm-alert-mat{font-size:10px;padding:1px 6px;background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;border-radius:3px;font-weight:600;}
+.scm-alert-action{font-size:11px;color:#C0392B;font-weight:600;background:#FEF2F2;padding:4px 8px;border-radius:4px;border:1px solid #FECACA;}
+.news-table{width:100%;border-collapse:collapse;font-size:12px;}
+.news-table th{background:#F1F5F9;padding:6px 10px;text-align:left;font-weight:700;color:#475569;border-bottom:2px solid #E2E8F0;}
+.news-table td{padding:6px 10px;border-bottom:1px solid #F1F5F9;vertical-align:top;}
+.news-table tr:hover td{background:#F8FAFC;}
+.sev-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;}
+.sev-dot.high{background:#DC2626;}
+.sev-dot.medium{background:#D97706;}
+.sev-dot.low{background:#16A34A;}
+.cat-stats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.cat-stat{font-size:11px;padding:3px 10px;border-radius:12px;background:#F1F5F9;color:#475569;border:1px solid #E2E8F0;}
+.footer-note{margin-top:24px;padding-top:14px;border-top:2px solid #E2E8F0;font-size:10px;color:#94A3B8;text-align:center;line-height:1.8;}
+a{color:#2563EB;text-decoration:none;}
+a:hover{text-decoration:underline;}
+@media print{body{padding:10px;}.report{padding:20px 16px;}}
+</style>
+</head>
+<body>
+<div class="report">
+  <div class="report-header">
+    <div class="report-logo">
+      <div class="report-logo-icon">🚨</div>
+      <div class="report-logo-text">mGSCS Daily Risk Report</div>
+    </div>
+    <div class="report-title">일일 공급망 리스크 보고서</div>
+    <div class="report-subtitle">재난·위기 뉴스 모니터 기반 반도체 소재 공급망 영향 분석</div>
+    <div class="report-meta">
+      <span>📅 ${dateStr}</span>
+      <span>🕐 ${timeStr} 기준</span>
+      <span>📡 언론사 ${SOURCES.length}개 소스</span>
+    </div>
+  </div>
+
+  <!-- 1. 요약 -->
+  <div class="section">
+    <div class="section-title">📊 리스크 현황 요약</div>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="num">${news.length}</div>
+        <div class="label">누적 수집 뉴스</div>
+      </div>
+      <div class="summary-card red">
+        <div class="num">${sevCounts.high}</div>
+        <div class="label">🔴 긴급</div>
+      </div>
+      <div class="summary-card orange">
+        <div class="num">${sevCounts.medium}</div>
+        <div class="label">🟡 주의</div>
+      </div>
+      <div class="summary-card green">
+        <div class="num">${recent24.length}</div>
+        <div class="label">최근 24h 뉴스</div>
+      </div>
+    </div>
+    <div class="cat-stats">
+      ${Object.entries(catCounts).sort((a,b)=>b[1]-a[1]).map(([cat,cnt])=>{
+        const catObj = CATS.find(c=>c.id===cat);
+        return `<span class="cat-stat">${catObj?.icon||"📰"} ${cat} ${cnt}건</span>`;
+      }).join("")}
+    </div>
+  </div>
+
+  <!-- 2. 공급망 영향 이슈 (mGSCS) -->
+  <div class="section">
+    <div class="section-title">🏭 반도체 소재 공급망 영향 이슈 (mGSCS)</div>
+    ${scmIssues.length === 0
+      ? `<p style="color:#16A34A;font-size:12px;padding:10px 0;">✅ 현재 소재 공급망에 직접적 영향을 주는 이슈가 감지되지 않았습니다.</p>`
+      : scmIssues.sort((a,b)=>{const o={high:0,medium:1,low:2};return (o[a.level]||1)-(o[b.level]||1);}).map(iss => `
+    <div class="scm-alert ${iss.level}">
+      <div class="scm-alert-head">
+        <span class="scm-alert-level ${iss.level}">${iss.level==="high"?"긴급":iss.level==="medium"?"주의":"모니터링"}</span>
+        <span class="scm-alert-title">${esc(iss.title)}</span>
+        <span style="font-size:10px;color:#94A3B8;margin-left:auto;">${esc(iss.region||"")}</span>
+      </div>
+      <div class="scm-alert-body">${esc(iss.summary||"")}</div>
+      <div class="scm-alert-mats">${(iss.affectedMaterials||[]).map(m=>`<span class="scm-alert-mat">${esc(m)}</span>`).join("")}</div>
+      ${iss.action ? `<div class="scm-alert-action">▶ ${esc(iss.action)}</div>` : ""}
+      ${iss.newsLink ? `<div style="font-size:10px;margin-top:4px;"><a href="${esc(iss.newsLink)}" target="_blank">관련 기사 →</a></div>` : ""}
+    </div>`).join("")
+    }
+  </div>
+
+  <!-- 3. 긴급 이슈 상세 -->
+  ${highItems.length > 0 ? `
+  <div class="section">
+    <div class="section-title" style="border-left-color:#DC2626;">🔴 긴급 이슈</div>
+    <table class="news-table">
+      <thead><tr><th>심각도</th><th>카테고리</th><th>제목</th><th>요약</th><th>출처</th><th>시각</th></tr></thead>
+      <tbody>
+        ${highItems.map(n => `<tr>
+          <td><span class="sev-dot high"></span>긴급</td>
+          <td>${esc(n.category)}</td>
+          <td>${n.link ? `<a href="${esc(n.link)}" target="_blank">${esc(n.titleKo || n.title)}</a>` : esc(n.titleKo || n.title)}</td>
+          <td>${esc(n.summary||"")}</td>
+          <td>${esc(n.source||"")}</td>
+          <td style="white-space:nowrap;">${formatTime(n.pubDate)}</td>
+        </tr>`).join("")}
+      </tbody>
+    </table>
+  </div>` : ""}
+
+  <!-- 4. 주의 이슈 -->
+  ${medItems.length > 0 ? `
+  <div class="section">
+    <div class="section-title blue">🟡 주의 이슈</div>
+    <table class="news-table">
+      <thead><tr><th>카테고리</th><th>제목</th><th>요약</th><th>출처</th><th>시각</th></tr></thead>
+      <tbody>
+        ${medItems.map(n => `<tr>
+          <td>${esc(n.category)}</td>
+          <td>${n.link ? `<a href="${esc(n.link)}" target="_blank">${esc(n.titleKo || n.title)}</a>` : esc(n.titleKo || n.title)}</td>
+          <td>${esc(n.summary||"")}</td>
+          <td>${esc(n.source||"")}</td>
+          <td style="white-space:nowrap;">${formatTime(n.pubDate)}</td>
+        </tr>`).join("")}
+      </tbody>
+    </table>
+  </div>` : ""}
+
+  <!-- 5. 최근 24시간 전체 뉴스 -->
+  ${recent24.length > 0 ? `
+  <div class="section">
+    <div class="section-title green">📰 최근 24시간 수집 뉴스 (${recent24.length}건)</div>
+    <table class="news-table">
+      <thead><tr><th>#</th><th>카테고리</th><th>제목</th><th>출처</th><th>시각</th></tr></thead>
+      <tbody>
+        ${recent24.slice(0,30).map((n,i) => `<tr>
+          <td>${i+1}</td>
+          <td><span class="sev-dot ${n.severity}"></span>${esc(n.category)}</td>
+          <td>${n.link ? `<a href="${esc(n.link)}" target="_blank">${esc(n.titleKo || n.title)}</a>` : esc(n.titleKo || n.title)}</td>
+          <td>${esc(n.source||"")}</td>
+          <td style="white-space:nowrap;">${formatTime(n.pubDate)}</td>
+        </tr>`).join("")}
+        ${recent24.length > 30 ? `<tr><td colspan="5" style="text-align:center;color:#94A3B8;">... 외 ${recent24.length-30}건</td></tr>` : ""}
+      </tbody>
+    </table>
+  </div>` : ""}
+
+  <div class="footer-note">
+    본 보고서는 재난·위기 뉴스 모니터(mGSCS) 시스템에 의해 자동 생성되었습니다.<br>
+    AI 이중 검증 기반 · 언론사 ${SOURCES.length}개 RSS 소스 · ${dateStr} ${timeStr} 기준<br>
+    소재전략 품질파트 · SK하이닉스
+  </div>
+</div>
+</body>
+</html>`;
+
+  lastReportHTML = html;
+
+  // iframe에 렌더링
+  const frame = document.getElementById("reportFrame");
+  frame.srcdoc = html;
+  document.getElementById("reportOverlay").classList.add("open");
+}
+
+function closeReportModal(){
+  document.getElementById("reportOverlay").classList.remove("open");
+}
+
+function downloadReportHTML(){
+  if(!lastReportHTML) return;
+  const now = new Date();
+  const fname = `mGSCS_일일보고서_${now.getFullYear()}${String(now.getMonth()+1).padStart(2,"0")}${String(now.getDate()).padStart(2,"0")}.html`;
+  const blob = new Blob([lastReportHTML], {type:"text/html;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = fname; a.click();
+  URL.revokeObjectURL(url);
+  showToast(`📥 ${fname} 다운로드 완료`);
+}
+
+function copyReportText(){
+  // HTML → 플레인텍스트 변환
+  const news = allNews;
+  const scmIssues = loadScmIssues();
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("ko-KR", {year:"numeric",month:"long",day:"numeric",weekday:"long"});
+  const timeStr = now.toLocaleTimeString("ko-KR", {hour:"2-digit",minute:"2-digit"});
+
+  const h24 = Date.now() - 24*60*60*1000;
+  const recent24 = news.filter(n => new Date(n.pubDate).getTime() > h24);
+  const highItems = news.filter(n => n.severity === "high").slice(0, 10);
+
+  let text = `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚨 일일 공급망 리스크 보고서
+${dateStr} ${timeStr} 기준
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 현황 요약
+• 누적 수집: ${news.length}건
+• 긴급(🔴): ${news.filter(n=>n.severity==="high").length}건
+• 주의(🟡): ${news.filter(n=>n.severity==="medium").length}건
+• 최근 24h: ${recent24.length}건
+
+`;
+
+  if(scmIssues.length > 0){
+    text += `🏭 소재 공급망 영향 이슈 (mGSCS)\n`;
+    text += `─────────────────────────────\n`;
+    scmIssues.forEach(iss => {
+      const lvl = iss.level==="high"?"🔴 긴급":iss.level==="medium"?"🟡 주의":"🟢 모니터링";
+      text += `${lvl} ${iss.title} [${iss.region||""}]\n`;
+      text += `  소재: ${(iss.affectedMaterials||[]).join(", ")}\n`;
+      text += `  ${iss.summary||""}\n`;
+      if(iss.action) text += `  ▶ ${iss.action}\n`;
+      if(iss.newsLink) text += `  📎 ${iss.newsLink}\n`;
+      text += `\n`;
+    });
+  } else {
+    text += `🏭 소재 공급망 영향 이슈: ✅ 해당 없음\n\n`;
+  }
+
+  if(highItems.length > 0){
+    text += `🔴 긴급 이슈\n`;
+    text += `─────────────────────────────\n`;
+    highItems.forEach((n,i) => {
+      text += `${i+1}. [${n.category}] ${n.titleKo||n.title}\n`;
+      if(n.summary) text += `   ${n.summary}\n`;
+      if(n.link) text += `   📎 ${n.link}\n`;
+      text += `\n`;
+    });
+  }
+
+  if(recent24.length > 0){
+    text += `📰 최근 24시간 뉴스 (상위 20건)\n`;
+    text += `─────────────────────────────\n`;
+    recent24.slice(0,20).forEach((n,i) => {
+      text += `${i+1}. [${n.category}] ${n.titleKo||n.title} (${n.source||""}) ${formatTime(n.pubDate)}\n`;
+    });
+    if(recent24.length > 20) text += `... 외 ${recent24.length-20}건\n`;
+  }
+
+  text += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+자동 생성: mGSCS 재난·위기 뉴스 모니터
+소재전략 품질파트 · SK하이닉스
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+
+  navigator.clipboard.writeText(text).then(()=>{
+    showToast("📋 보고서 텍스트가 클립보드에 복사되었습니다.");
+  }).catch(()=>{
+    // fallback
+    const ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand("copy");
+    document.body.removeChild(ta);
+    showToast("📋 복사 완료");
+  });
+}
+
+function openMailWithReport(){
+  // mailto: 방식으로 기본 메일 클라이언트 열기
+  const now = new Date();
+  const dateStr = now.toLocaleDateString("ko-KR", {year:"numeric",month:"long",day:"numeric"});
+  const subject = encodeURIComponent(`[mGSCS] 일일 공급망 리스크 보고서 — ${dateStr}`);
+
+  // 먼저 텍스트 복사
+  copyReportText();
+
+  // 짧은 본문만 mailto에 넣고, 상세 내용은 클립보드 활용 안내
+  const body = encodeURIComponent(
+    `일일 공급망 리스크 보고서를 첨부합니다.\n\n` +
+    `※ 상세 보고서 텍스트는 클립보드에 복사되었습니다. 본문에 붙여넣기(Ctrl+V)해주세요.\n` +
+    `※ 또는 HTML 파일을 다운로드하여 첨부파일로 전송할 수 있습니다.\n\n` +
+    `---\n` +
+    `mGSCS 재난·위기 뉴스 모니터\n` +
+    `소재전략 품질파트`
+  );
+
+  window.open(`mailto:?subject=${subject}&body=${body}`, "_self");
+  showToast("📧 메일 클라이언트가 열립니다. 본문에 Ctrl+V로 붙여넣기하세요.");
+}
+
+// ════════════════════════════════════════
 // 렌더링
 // ════════════════════════════════════════
-// 기사 링크 열기 - 일반 브라우저: 새 탭, 아이패드 뷰어: 클립보드 복사
 function openArticle(url){
   if(!url||url==="#") return;
   try {
     const w = window.open(url, "_blank");
-    // 팝업 차단 or 아이패드 뷰어 환경 감지
     if(!w || w.closed || typeof w.closed==='undefined'){
-      // 클립보드 복사로 fallback
       if(navigator.clipboard){
         navigator.clipboard.writeText(url).then(()=>{
           showToast("📋 링크가 복사되었습니다. 브라우저에서 붙여넣기하세요.");
@@ -885,17 +1295,12 @@ function openArticle(url){
 }
 
 function showToast(msg){
-  let t = document.getElementById('toast');
-  if(!t){
-    t = document.createElement('div');
-    t.id = 'toast';
-    t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1E293B;color:#fff;padding:10px 20px;border-radius:8px;font-size:12px;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:opacity .3s;';
-    document.body.appendChild(t);
-  }
+  const t = document.getElementById('toast');
   t.textContent = msg;
   t.style.opacity = '1';
+  t.style.pointerEvents = 'auto';
   clearTimeout(t._timer);
-  t._timer = setTimeout(()=>{ t.style.opacity='0'; }, 3000);
+  t._timer = setTimeout(()=>{ t.style.opacity='0'; t.style.pointerEvents='none'; }, 3000);
 }
 
 function renderNews(){
@@ -914,7 +1319,8 @@ function renderNews(){
     const sevClr=item.severity==="high"?"#DC2626":item.severity==="medium"?"#D97706":"#16A34A";
     const sevBg =item.severity==="high"?"#FEF2F2":item.severity==="medium"?"#FFFBEB":"#F0FDF4";
     const sevLbl=item.severity==="high"?"🔴 긴급":item.severity==="medium"?"🟡 주의":"🟢 모니터링";
-    const href=item.link||"#";
+    // ★ BugFix: XSS 방지 — href를 data 속성으로 안전하게 전달
+    const safeLink = item.link ? esc(item.link) : "";
     const aiTag=item.aiVerified
       ?`<span class="ai-badge">✦ AI 검증</span>`
       :`<span style="font-size:10px;color:#94A3B8;padding:2px 6px;background:#F1F5F9;border-radius:4px;">키워드</span>`;
@@ -937,7 +1343,7 @@ function renderNews(){
         ${item.summary?`<div class="news-summary" style="border-left-color:${clr};">
           <div class="sum-label">AI 요약</div>${esc(item.summary)}</div>`:""}
       </div>
-      <button class="link-btn" onclick="openArticle('${esc(href)}')" title="${esc(href)}">기사 보기 →</button>
+      <button class="link-btn" data-url="${safeLink}" onclick="openArticle(this.dataset.url)" title="${safeLink}">기사 보기 →</button>
     </div>`;
   }).join("");
 }
@@ -1071,12 +1477,10 @@ function showLoadingState(){
   const list=document.getElementById("newsList");
   s.style.display="block";
   list.style.display="none";
-  // innerHTML 교체 없이 기존 구조 재활용 (progressFill/Label ID 유지)
   const icon=s.querySelector(".state-icon");
   const sub=s.querySelector(".state-sub");
   if(icon){icon.className="state-icon spin";icon.textContent="⚙️";}
   if(sub){sub.textContent="언론사 RSS를 수집하고 있습니다...";}
-  // progress wrap이 없으면 생성
   if(!s.querySelector(".progress-wrap")){
     s.insertAdjacentHTML("beforeend",`<div class="progress-wrap">
       <div class="progress-label" id="progressLabel">준비 중...</div>
@@ -1113,17 +1517,17 @@ function resetCountdown(){
 }
 
 // ════════════════════════════════════════
-// 초기화 — 페이지 로드 시 DB에서 즉시 표시
+// 초기화
 // ════════════════════════════════════════
 updateApiKeyBtn();
 
-// ★ 저장된 SCM 이슈 즉시 표시
 const savedScm = loadScmIssues();
 if(savedScm.length > 0) renderScmIssues(savedScm);
 
-// ★ 페이지 열자마자 저장된 뉴스 즉시 표시
 const savedNews = loadNewsDB();
 if(savedNews.length > 0){
+  // ★ BugFix: 로드 시 isNew 플래그 제거
+  savedNews.forEach(n => { delete n.isNew; });
   allNews = savedNews;
   updateDbBar(savedNews);
   renderNews();
